@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Entrega de Medicamentos - IPS</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="hero">
+            <h1>Entrega de Medicamentos a Pacientes</h1>
+            <p class="lead">Registre existencias y presiones arteriales para determinar entregas y reportes.</p>
+        </header>
+
+        <section class="card inputs-card">
+            <h2>Existencias iniciales</h2>
+            <div class="row">
+                <label>Medicamento 1 (unidades): <input id="stock1" type="number" min="0" value="100"></label>
+                <label>Medicamento 2 (unidades): <input id="stock2" type="number" min="0" value="100"></label>
+            </div>
+            <div class="actions">
+                <button id="startBtn" class="btn primary">Iniciar registro</button>
+                <button id="resetBtn" class="btn ghost">Resetear</button>
+            </div>
+        </section>
+
+        <section class="card patient-card hidden">
+            <h2>Registrar paciente</h2>
+            <div class="row">
+                <label>Sistólica: <input id="sistolica" type="number" min="0"></label>
+                <label>Diastólica: <input id="diastolica" type="number" min="0"></label>
+            </div>
+            <div class="actions">
+                <button id="addPatientBtn" class="btn primary">Registrar paciente</button>
+                <button id="stopBtn" class="btn warn">Detener</button>
+            </div>
+            <div id="message" class="message"></div>
+        </section>
+
+        <section class="card status-card hidden">
+            <h2>Estado</h2>
+            <div class="status-grid">
+                <div>Stock Medicamento 1: <strong id="showStock1">0</strong></div>
+                <div>Stock Medicamento 2: <strong id="showStock2">0</strong></div>
+                <div>Pacientes atendidos: <strong id="totalPatients">0</strong></div>
+                <div>Pacientes con med1: <strong id="med1Count">0</strong></div>
+                <div>Pacientes con med2: <strong id="med2Count">0</strong></div>
+            </div>
+        </section>
+
+        <section class="card table-card hidden">
+            <h2>Registro de pacientes</h2>
+            <div class="table-wrap">
+                <table id="patientsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Sistólica</th>
+                            <th>Diastólica</th>
+                            <th>Categoría</th>
+                            <th>Medicación</th>
+                            <th>Dosis entregadas</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="card summary-card hidden">
+            <h2>Resumen final</h2>
+            <div id="summary"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
